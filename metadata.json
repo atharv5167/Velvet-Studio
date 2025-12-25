@@ -1,0 +1,7 @@
+{
+  "name": "Velvet Booth - Immersive Online Photo Booth",
+  "description": "A cinematic browser-based photo booth experience featuring smooth curtain animations, live filters, and custom frame layouts.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
