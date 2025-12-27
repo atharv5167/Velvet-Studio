@@ -3,29 +3,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Velvet Studio - Online Photo Booth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --studio-beige: #D1C7BC;
+        --studio-taupe: #8D7A66;
+        --studio-charcoal: #1A1A1A;
+      }
+      
+      html, body {
+        height: 100dvh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+        background-color: var(--studio-taupe);
+      }
+
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #8D7A66; /* Warm deep taupe */
-        color: #1A1A1A;
-        overflow: hidden;
+        color: var(--studio-charcoal);
       }
+
       .font-serif {
         font-family: 'Playfair Display', serif;
       }
+
       .bg-studio-canvas {
-        background-color: #D1C7BC; /* Soft warm beige */
+        background-color: var(--studio-beige);
       }
+
       .bg-studio-accent {
-        background-color: #1A1A1A; /* Deep charcoal */
+        background-color: var(--studio-charcoal);
       }
+
       .text-studio-muted {
         color: #6B5E51;
       }
+
       /* Custom Scrollbar for Controls */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
@@ -34,6 +52,7 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
       /* Custom Curtain Texture */
       .curtain-texture {
         background-image: repeating-linear-gradient(
@@ -42,6 +61,14 @@
           rgba(255, 255, 255, 0.03) 8px,
           rgba(0, 0, 0, 0.15) 16px
         );
+      }
+
+      /* Native-like active states for mobile */
+      @media (hover: none) {
+        .active-scale:active {
+          transform: scale(0.96);
+          transition: transform 0.1s ease;
+        }
       }
     </style>
   <script type="importmap">
@@ -55,7 +82,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="flex items-center justify-center h-screen">
+  <body class="flex items-center justify-center">
     <div id="root" class="w-full h-full"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
